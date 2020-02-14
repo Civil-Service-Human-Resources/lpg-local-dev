@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  # Data
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    ports:
+      - 9200:9200
+      - 9300:9300
+    command: 'elasticsearch -E cluster.name=local -E discovery.type=single-node'
+
+  mongodb:
+    container_name: mongodb
+    image: mongo@sha256:fbb95eaa5a0c84d0d2098775f166003c568a79f993d91309cee7cda4135bbbfd
+    ports:
+      - 27017:27017
+
+  redis:
+    container_name: redis
+    image: redis@sha256:3446883dfe13ab3db67433aace0e72d8cd669c528e60c617c42d6c697f0fa41f
+   #/Data
